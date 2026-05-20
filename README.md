@@ -18,12 +18,15 @@
 
 打开 Claude Code，说 `/bayesian-dating`，然后：
 
+**简易模式（默认）**：
 1. 选一个预测目标（适配/破裂/挽回）
 2. 凭直觉回答先验概率（大/中/小）
 3. 一个个说你们之间的关键事件，每个事件选方向、强度、重要性
-4. 模型在后台算，最后给你概率变化和一句话建议
+4. 模型在后台算，最后给你概率变化和建议
 
 全程不用填数字，选大中小就行。
+
+**高级模式**：适合想自定义参数、使用 27 项精细信号表、计算期望价值（EV）的用户。在对话中说"自定义参数"或"用默认信号表"即可触发。
 
 ## 举个栗子
 
@@ -55,11 +58,14 @@ bayesian-dating/
 ├── models/
 │   ├── bayesian-updating/       ← 贝叶斯概率更新（当前唯一模型）
 │   │   ├── model.md             ←   公式 + 完整推导
-│   │   ├── compatibility.md     ←   适配度 workflow
+│   │   ├── compatibility.md     ←   适配度 workflow（简易：大/中/小）
+│   │   ├── compatibility-advanced.md ← 适配度 workflow（高级：27 信号 + EV）
 │   │   ├── breakdown.md         ←   破裂风险 workflow
 │   │   └── reconciliation.md    ←   挽回概率 workflow
 │   └── _template/               ← 新增公式模板（复制即用）
 └── shared/
+    ├── ethical-boundaries.md    ← 伦理边界（所有模型引用）
+    ├── signal-catalog.md        ← 27 项默认行为信号参数表
     └── weight-reference.md      ← 跨模型权重参考表
 ```
 
